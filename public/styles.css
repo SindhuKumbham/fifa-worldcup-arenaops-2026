@@ -1,0 +1,206 @@
+/* ===== Design tokens ===== */
+:root {
+  --color-primary: #1a4d8f;      /* WCAG AA contrast on white: 7.2:1 */
+  --color-primary-dark: #0d3266;
+  --color-accent: #d64545;       /* used sparingly for urgent states */
+  --color-bg: #f7f9fc;
+  --color-surface: #ffffff;
+  --color-text: #1a1a1a;         /* contrast on white: 16.1:1 */
+  --color-text-muted: #4a5568;   /* contrast on white: 7.5:1 */
+  --color-border: #cbd5e0;
+  --focus-ring: 3px solid #ffbf47;
+  --radius: 10px;
+  --spacing: 1rem;
+  font-size: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+/* ===== Skip link (keyboard accessibility) ===== */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--color-primary);
+  color: white;
+  padding: 0.75rem 1.25rem;
+  z-index: 100;
+  border-radius: 0 0 var(--radius) 0;
+}
+.skip-link:focus {
+  left: 0;
+}
+
+/* ===== Visible focus indicators everywhere (critical for keyboard users) ===== */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* ===== Header ===== */
+header {
+  background: var(--color-primary);
+  color: white;
+  padding: 1.5rem var(--spacing);
+  text-align: center;
+}
+header h1 {
+  margin: 0;
+  font-size: 1.75rem;
+}
+.subtitle {
+  margin: 0.25rem 0 0;
+  opacity: 0.95;
+  font-size: 0.95rem;
+}
+
+/* ===== Main layout ===== */
+main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: var(--spacing);
+}
+section {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+h2 {
+  margin-top: 0;
+  font-size: 1.25rem;
+  color: var(--color-primary-dark);
+}
+
+/* ===== Form ===== */
+.form-group {
+  margin-bottom: 1.25rem;
+}
+label, legend {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+.hint {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin: 0.35rem 0 0;
+}
+textarea, select {
+  width: 100%;
+  padding: 0.65rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+.quick-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.5rem;
+}
+.quick-action-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 400;
+  padding: 0.6rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: 6px;
+  cursor: pointer;
+}
+.quick-action-label:has(input:checked) {
+  border-color: var(--color-primary);
+  background: #eaf1fb;
+}
+.quick-action-label input {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+}
+
+button#submit-btn {
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  min-height: 44px;
+}
+button#submit-btn:hover,
+button#submit-btn:focus-visible {
+  background: var(--color-primary-dark);
+}
+button#submit-btn:disabled {
+  background: #9aa5b1;
+  cursor: not-allowed;
+}
+
+/* ===== Response area ===== */
+.response-box {
+  border: 1.5px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1rem;
+  min-height: 4rem;
+  background: #fafbfc;
+  white-space: pre-wrap;
+}
+.response-box.urgent {
+  border-color: var(--color-accent);
+  background: #fdf0f0;
+}
+.placeholder-text {
+  color: var(--color-text-muted);
+  margin: 0;
+}
+.model-source {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin: 0.5rem 0 0;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

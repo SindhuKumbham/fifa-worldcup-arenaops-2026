@@ -1,0 +1,16 @@
+{
+  "name": "stadiumguide-ai",
+  "version": "1.0.0",
+  "description": "GenAI-powered navigation assistant for FIFA World Cup 2026 volunteers and staff — Challenge 4: Smart Stadiums & Tournament Operations",
+  "main": "api/ask.js",
+  "scripts": {
+    "test": "jest",
+    "dev": "vercel dev"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

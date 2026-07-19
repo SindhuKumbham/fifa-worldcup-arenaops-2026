@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StadiumGuide AI — Volunteer Navigation Assistant</title>
+  <meta name="description" content="GenAI-powered navigation assistant for FIFA World Cup 2026 volunteers and staff." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header role="banner">
+    <h1>🏟️ StadiumGuide AI</h1>
+    <p class="subtitle">Volunteer Navigation Assistant — FIFA World Cup 2026</p>
+  </header>
+
+  <main id="main-content" role="main">
+    <section aria-labelledby="request-heading">
+      <h2 id="request-heading">Describe the fan's request</h2>
+
+      <form id="request-form" novalidate>
+        <div class="form-group">
+          <label for="query-input">What does the fan need?</label>
+          <textarea
+            id="query-input"
+            name="query"
+            rows="3"
+            placeholder="e.g. Fan in a wheelchair near section 158 needs a restroom"
+            aria-describedby="query-hint"
+          ></textarea>
+          <p id="query-hint" class="hint">Describe the situation in plain language, or choose a common request below.</p>
+        </div>
+
+        <fieldset class="form-group">
+          <legend>Or choose a common request</legend>
+          <div class="quick-actions" role="radiogroup" aria-label="Common request types">
+            <label class="quick-action-label">
+              <input type="radio" name="quick-action" value="" checked />
+              <span>None — I'll type my own</span>
+            </label>
+            <label class="quick-action-label">
+              <input type="radio" name="quick-action" value="Lost child — need the family assistance point" />
+              <span>🧒 Lost child</span>
+            </label>
+            <label class="quick-action-label">
+              <input type="radio" name="quick-action" value="Medical emergency — need the nearest medical station" />
+              <span>🚑 Medical emergency</span>
+            </label>
+            <label class="quick-action-label">
+              <input type="radio" name="quick-action" value="Wheelchair access needed" />
+              <span>♿ Wheelchair access</span>
+            </label>
+            <label class="quick-action-label">
+              <input type="radio" name="quick-action" value="Security incident — need the escalation point" />
+              <span>🚨 Security incident</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="form-group">
+          <label for="language-select">Response language</label>
+          <select id="language-select" name="language">
+            <option value="English">English</option>
+            <option value="Spanish">Español (Spanish)</option>
+            <option value="French">Français (French)</option>
+            <option value="Portuguese">Português (Portuguese)</option>
+            <option value="Arabic">العربية (Arabic)</option>
+          </select>
+        </div>
+
+        <button type="submit" id="submit-btn">Get Directions</button>
+      </form>
+    </section>
+
+    <section aria-labelledby="response-heading" aria-live="polite">
+      <h2 id="response-heading">AI Response</h2>
+      <div id="status-message" role="status" class="visually-hidden"></div>
+      <div id="response-box" class="response-box" tabindex="-1">
+        <p class="placeholder-text">Your directions will appear here after you submit a request.</p>
+      </div>
+      <p id="model-source" class="model-source"></p>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <p>Built for FIFA World Cup 2026 — Challenge 4: Smart Stadiums &amp; Tournament Operations</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
